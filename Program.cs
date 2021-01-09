@@ -19,15 +19,15 @@ sockMerchant has the following parameter(s):
  */
     class Program
     {
-        static int sockMerchant(int numberOfSocks, int[] socksColors)
+        static int sockMerchant(int numberOfSocksInPile, int[] socksColors)
         {   
             var duplicates = 1;
             var totalPairs = 0;
             var exist = new List<int>();
 
-            if (numberOfSocks >= 1 || numberOfSocks <= 100)
+            if (numberOfSocksInPile >= 1 || numberOfSocksInPile <= 100)
             {
-                for (int i = 0; i < numberOfSocks; i++)
+                for (int i = 0; i < numberOfSocksInPile; i++)
                 {
                     var temp = socksColors[i];
                     if(exist.Contains(temp))
@@ -39,7 +39,7 @@ sockMerchant has the following parameter(s):
                         exist.Add(temp);
                     }
 
-                    for (int y = 1; y < numberOfSocks; y++)
+                    for (int y = 1; y < numberOfSocksInPile; y++)
                     {
                         if (temp == socksColors[y])
                         {
@@ -65,11 +65,7 @@ sockMerchant has the following parameter(s):
 
         static void Main(string[] args)
         {
-            // int n = Convert.ToInt32(Console.ReadLine());
-
-            // int[] ar = Array.ConvertAll(Console.ReadLine().Split(' '), arTemp => Convert.ToInt32(arTemp));
-
-            int result = sockMerchant(9, new int[] { 10, 20, 20, 10, 10, 30, 50, 10, 20 };);
+            int result = sockMerchant(9, new int[] { 10, 20, 20, 10, 10, 30, 50, 10, 20 });
 
             System.Console.WriteLine(result);
             System.Console.ReadLine();
